@@ -6,10 +6,11 @@ class Loader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const height = 72.0;
+    const height = 24.0;
     return Container(
       height: height,
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(
             height: height,
