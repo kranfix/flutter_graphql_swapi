@@ -13,8 +13,31 @@ abstract class Person with _$Person {
     @nullable String eyeColor,
     @nullable String hairColor,
     @nullable String skinColor,
-    VehicleConnection vehicleConnection,
+    PersonVehicleConnection vehicleConnection,
   }) = _Person;
 
   factory Person.fromJson(Map<String, dynamic> json) => _$PersonFromJson(json);
+}
+
+@freezed
+abstract class PeopleConnection with _$PeopleConnection {
+  const factory PeopleConnection({
+    @nullable PageInfo pageInfo,
+    @nullable List<PeopleEdge> edges,
+    @nullable int totalCount,
+  }) = _PeopleConnection;
+
+  factory PeopleConnection.fromJson(Map<String, dynamic> json) =>
+      _$PeopleConnectionFromJson(json);
+}
+
+@freezed
+abstract class PeopleEdge with _$PeopleEdge {
+  const factory PeopleEdge({
+    @nullable Person node,
+    @required String cursor,
+  }) = _PeopleEdge;
+
+  factory PeopleEdge.fromJson(Map<String, dynamic> json) =>
+      _$PeopleEdgeFromJson(json);
 }
