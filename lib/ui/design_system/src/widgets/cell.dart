@@ -25,30 +25,38 @@ class Cell extends StatelessWidget {
     const dividerHeight = 1.0;
     const padding = 16.0;
 
-    final _width = MediaQuery.of(context).size.width;
     const trailingWidth = 36.0;
-    final internalWidth = trailing != null ? _width - trailingWidth : _width;
 
     Widget tree = Container(
-      width: internalWidth,
+      width: double.infinity,
       height: internalHeight,
       margin: const EdgeInsets.all(16),
       alignment: alignment,
       child: child,
     );
 
-    if (trailing != null) {
-      tree = Row(
+    tree = SizedBox(
+      width: MediaQuery.of(context).size.width,
+      height: internalHeight != null ? internalHeight + 2 * padding : null,
+      child: Row(
         children: [
-          tree,
-          SizedBox(
-            width: trailingWidth,
-            height: internalHeight,
-            child: trailing,
+          Expanded(
+            child: Container(
+              height: internalHeight,
+              margin: const EdgeInsets.all(16),
+              alignment: alignment,
+              child: child,
+            ),
           ),
+          if (trailing != null)
+            SizedBox(
+              width: trailingWidth,
+              height: internalHeight,
+              child: trailing,
+            ),
         ],
-      );
-    }
+      ),
+    );
 
     if (showDivider) {
       tree = Column(
