@@ -6,11 +6,7 @@ class NoticedCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 52,
-      alignment: Alignment.center,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+    return Cell(
       child: Text(
         'Failed to Load Data',
         style: TextStyles.h2HighEmphasis,
