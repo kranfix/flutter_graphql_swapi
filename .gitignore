@@ -46,3 +46,7 @@ android/
 ios/
 web/
 macos/
+
+# freezed and generated
+**/*.freezed.dart
+**/*.g.dart
