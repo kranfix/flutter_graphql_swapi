@@ -34,7 +34,7 @@ class PersonDetailScreen extends StatelessWidget {
     );
   }
 
-  Future<void> navigate(BuildContext context, Person person) {
+  static Future<void> navigate(BuildContext context, {Person person}) {
     return Navigator.push(
       context,
       MaterialPageRoute(
