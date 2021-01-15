@@ -12,11 +12,11 @@ abstract class Vehicle with _$Vehicle {
 }
 
 @freezed
-abstract class VehicleConnection with _$VehicleConnection {
-  const factory VehicleConnection({
+abstract class PersonVehicleConnection with _$PersonVehicleConnection {
+  const factory PersonVehicleConnection({
     @required List<Vehicle> vehicles,
-  }) = _VehicleConnection;
+  }) = _PersonVehicleConnection;
 
-  factory VehicleConnection.fromJson(Map<String, dynamic> json) =>
-      _$VehicleConnectionFromJson(json);
+  factory PersonVehicleConnection.fromJson(Map<String, dynamic> json) =>
+      _$PersonVehicleConnectionFromJson(json);
 }
