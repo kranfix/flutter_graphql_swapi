@@ -17,15 +17,29 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    final _people = context.read<PersonList>();
+
     _scrollController.addListener(() {
       //print(lastOffset < _scrollController.position.pixels ? "down" : "up");
+      final isScrollinDown = lastOffset > _scrollController.position.pixels;
       lastOffset = _scrollController.position.pixels;
       if (_scrollController.position.pixels ==
-          _scrollController.position.maxScrollExtent - 60) {
-        final _people = context.watch<PersonList>();
+              _scrollController.position.maxScrollExtent &&
+          isScrollinDown) {
         _people.fetchMore();
+        goToEndOfList();
       }
     });
+  }
+
+  void goToEndOfList() {
+    Future.microtask(
+      () => _scrollController.animateTo(
+        _scrollController.position.maxScrollExtent + 80,
+        curve: Curves.easeOut,
+        duration: const Duration(milliseconds: 500),
+      ),
+    );
   }
 
   @override

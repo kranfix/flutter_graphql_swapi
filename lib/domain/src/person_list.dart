@@ -9,7 +9,6 @@ class PersonList extends ChangeNotifier {
       : peopleEdges = [],
         _status = PersonListStatus.loading,
         assert(gqlClient != null) {
-    print('gqlClient: is null ${gqlClient == null}');
     fetch();
   }
 
@@ -28,10 +27,9 @@ class PersonList extends ChangeNotifier {
         query: _allPeopleQuery,
         variables: <String, dynamic>{
           'first': first ?? 5,
-          if (cursor != null) 'cursor': cursor
+          if (cursor != null) 'after': cursor
         },
       );
-      print(result);
       final _people = result.data['allPeople'] as Map<String, dynamic>;
       final peopleConnection = PeopleConnection.fromJson(_people);
       peopleEdges.addAll(peopleConnection.edges);
@@ -44,7 +42,6 @@ class PersonList extends ChangeNotifier {
   }
 
   Future<void> fetchMore() async {
-    print('dsdsds');
     if (peopleEdges.isEmpty) {
       return fetch();
     }
