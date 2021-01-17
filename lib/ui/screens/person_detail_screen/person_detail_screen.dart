@@ -15,7 +15,8 @@ class PersonDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppScaffold(
       title: person.name,
-      body: Center(
+      body: Align(
+        alignment: Alignment.topCenter,
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -25,8 +26,19 @@ class PersonDetailScreen extends StatelessWidget {
               InfoCell(category: 'Skin Color', value: person.skinColor),
               InfoCell(category: 'Birth Year', value: person.birthYear),
               SectionHeader(text: 'Vehicles'),
-              for (final v in person.vehicleConnection.vehicles)
-                InfoCell(category: v.name, value: ''),
+              if (person.vehicleConnection.vehicles.isNotEmpty)
+                for (final v in person.vehicleConnection.vehicles)
+                  InfoCell(category: v.name, value: '')
+              else
+                Container(
+                  padding: const EdgeInsets.only(left: 16),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'There is no vehicle',
+                    style: TextStyles.p1Default,
+                    textAlign: TextAlign.left,
+                  ),
+                ),
             ],
           ),
         ),

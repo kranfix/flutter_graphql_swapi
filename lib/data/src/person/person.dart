@@ -14,6 +14,8 @@ abstract class Person with _$Person {
     @nullable String hairColor,
     @nullable String skinColor,
     PersonVehicleConnection vehicleConnection,
+    Planet homeworld,
+    @nullable Species species,
   }) = _Person;
 
   factory Person.fromJson(Map<String, dynamic> json) => _$PersonFromJson(json);
