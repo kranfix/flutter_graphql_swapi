@@ -15,7 +15,8 @@ class PersonDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppScaffold(
       title: person.name,
-      body: Center(
+      body: Align(
+        alignment: Alignment.topCenter,
         child: SingleChildScrollView(
           child: Column(
             children: [
