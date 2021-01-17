@@ -2,6 +2,8 @@
 
 A Star Wars API based on [this figma design](https://www.figma.com/file/Ceoqa8DbrtyKoOBDR77ktm/Ravn-Code-Challenge?node-id=8%3A0) and [netifly swapi](https://swapi-graphql.netlify.app/.netlify/functions/index).
 
+<img src="images/app_example.gif" alt="App example" width="250"/>
+
 ## Getting Started
 
 The project does not contains the platform folders.
