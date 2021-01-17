@@ -5,11 +5,11 @@ import 'package:simple_gql/simple_gql.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const StarWarsApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key key}) : super(key: key);
+class StarWarsApp extends StatelessWidget {
+  const StarWarsApp({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
