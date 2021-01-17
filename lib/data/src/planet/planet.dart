@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_graphql_swapi/data/data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'planet.freezed.dart';
